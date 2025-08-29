@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqgtpl8s1myy5"]
+
+[ext_resource type="PackedScene" uid="uid://cj32vufd2vq1x" path="res://Scenes/astro.tscn" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://dnrfkq0c7rhq4" path="res://Assets/Sprites/Placeholders.png" id="2_h2yge"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2yge"]
+texture = ExtResource("2_h2yge")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-7, -2, 7, -2, 7, 4, -7, 4)
+0:2/0 = 0
+0:3/0 = 0
+1:2/size_in_atlas = Vector2i(1, 2)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -16, 4, -16, 4, 16, -4, 16)
+2:3/size_in_atlas = Vector2i(2, 1)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 0, 16, 0, 16, 8, -16, 8)
+
+[sub_resource type="TileSet" id="TileSet_1bvp3"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_h2yge")
+
+[node name="main" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_1bvp3")
+format = 2
+layer_0/tile_data = PackedInt32Array(65533, 131072, 3, 65535, 131072, 3, 1, 131072, 3, 8, 131072, 3, 10, 131072, 3, 12, 131072, 3, 65532, 65536, 2, -65540, 65536, 2, -131076, 65536, 2, -262148, 65536, 2, -327684, 65536, 2, -393220, 65536, 2, -458756, 65536, 2, -524292, 65536, 2, -589828, 65536, 2, -655364, 65536, 2, -720900, 65536, 2, -524275, 65536, 2, -458739, 65536, 2, -393203, 65536, 2, -327667, 65536, 2, -262131, 65536, 2, -196595, 65536, 2, -131059, 65536, 2, -65523, 65536, 2, 13, 65536, 2, -786419, 65536, 2, -720883, 65536, 2, -655347, 65536, 2, -589811, 65536, 2, -786435, 131072, 3, -786434, 131072, 3, -786433, 131072, 3, -851968, 131072, 3, -851967, 131072, 3, -851956, 131072, 3, -851957, 131072, 3, -851958, 131072, 3, -851959, 131072, 3, -851960, 131072, 3, -851965, 131072, 3, -851964, 131072, 3, -851963, 131072, 3, -851962, 131072, 3, 327677, 131072, 3, 327678, 131072, 3, 327679, 131072, 3, 262144, 131072, 3, 262145, 131072, 3, 262146, 131072, 3, 262147, 131072, 3, 262148, 131072, 3, 262149, 131072, 3, 262150, 131072, 3, 262151, 131072, 3, 262152, 131072, 3, 262153, 131072, 3, 262154, 131072, 3, 262155, 131072, 3, 262156, 131072, 3, 131085, 65536, 2, 196621, 65536, 2, 65549, 65536, 2, 131068, 65536, 2, 196604, 65536, 2, 262140, 65536, 2, 327676, 131072, 3, 262157, 131072, 3, -196609, 131072, 3, -327672, 131072, 3, -327671, 131072, 3, -524286, 131072, 3, -589821, 65536, 2, -131068, 131072, 3)
+
+[node name="Astro" parent="." instance=ExtResource("1_0xm2m")]

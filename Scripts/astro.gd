@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-
 @export var gravity: float = 980.0
 @export var walk_speed: float = 100.0
 @export var max_jump_force: float = 600.0
