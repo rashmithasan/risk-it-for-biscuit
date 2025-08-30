@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://w0hogedvtgqg"]
+
+[ext_resource type="Script" path="res://Scripts/dog.gd" id="1_jjhow"]
+[ext_resource type="Texture2D" uid="uid://d31knvqurhpjo" path="res://Assets/Sprites/Spritesheet_elements.png" id="1_w4sbe"]
+[ext_resource type="AudioStream" uid="uid://2s4ob7oo24ed" path="res://Assets/Sounds/bark.ogg" id="3_c36vf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s00mt"]
+atlas = ExtResource("1_w4sbe")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkf8b"]
+atlas = ExtResource("1_w4sbe")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kp18i"]
+atlas = ExtResource("1_w4sbe")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opcwc"]
+atlas = ExtResource("1_w4sbe")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nc8hs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s00mt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkf8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kp18i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opcwc")
+}],
+"loop": true,
+"name": &"dog_idle",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wncuk"]
+size = Vector2(11, 13)
+
+[node name="Dog" type="Area2D"]
+script = ExtResource("1_jjhow")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nc8hs")
+animation = &"dog_idle"
+frame_progress = 0.476214
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_wncuk")
+
+[node name="bark" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_c36vf")
+pitch_scale = 1.35

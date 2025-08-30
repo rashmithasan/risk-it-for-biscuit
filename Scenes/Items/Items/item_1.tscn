@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://crip1son8yd58"]
+
+[ext_resource type="Script" path="res://Scripts/items.gd" id="1_ic2p8"]
+[ext_resource type="Texture2D" uid="uid://cbtrtsf5b3kk3" path="res://Assets/Sprites/BG_Spritesheet.png" id="2_sirwf"]
+[ext_resource type="AudioStream" uid="uid://x0n8e0p8jdex" path="res://Assets/Sounds/ui_interact.ogg" id="3_60c5b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0bw8y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n02kw"]
+atlas = ExtResource("2_sirwf")
+region = Rect2(0, 95, 17, 17)
+
+[node name="Item_1" type="Area2D"]
+script = ExtResource("1_ic2p8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0bw8y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_n02kw")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_60c5b")

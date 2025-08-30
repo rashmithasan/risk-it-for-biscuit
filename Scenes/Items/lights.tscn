@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhpjgqv51vcoe"]
+
+[ext_resource type="Texture2D" uid="uid://cbtrtsf5b3kk3" path="res://Assets/Sprites/BG_Spritesheet.png" id="1_fcfjb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_raer2"]
+atlas = ExtResource("1_fcfjb")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wu8aj"]
+atlas = ExtResource("1_fcfjb")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tdb7"]
+atlas = ExtResource("1_fcfjb")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_li2cj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_raer2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wu8aj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tdb7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="Lights" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_li2cj")
+autoplay = "default"
+frame_progress = 0.587788

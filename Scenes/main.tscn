@@ -1,0 +1,742 @@
+[gd_scene load_steps=29 format=3 uid="uid://dqgtpl8s1myy5"]
+
+[ext_resource type="PackedScene" uid="uid://c4id565abkfh8" path="res://Scenes/tile_map.tscn" id="1_8m1rt"]
+[ext_resource type="PackedScene" uid="uid://cj32vufd2vq1x" path="res://Scenes/astro.tscn" id="1_f2mj2"]
+[ext_resource type="AudioStream" uid="uid://bo40pa1yibtum" path="res://Assets/Sounds/jump.ogg" id="2_1hd8m"]
+[ext_resource type="PackedScene" uid="uid://dp201dh5p2kvh" path="res://Scenes/Items/escape_pod.tscn" id="2_y3ixu"]
+[ext_resource type="PackedScene" uid="uid://w0hogedvtgqg" path="res://Scenes/dog.tscn" id="4_gxa5w"]
+[ext_resource type="Script" path="res://Scripts/UI.gd" id="6_aef0q"]
+[ext_resource type="Texture2D" uid="uid://cbtrtsf5b3kk3" path="res://Assets/Sprites/BG_Spritesheet.png" id="7_6myyr"]
+[ext_resource type="Texture2D" uid="uid://vi5qibn3j3t" path="res://Assets/Sprites/Space.png" id="8_ww88e"]
+[ext_resource type="PackedScene" uid="uid://bv7dncppuo5l5" path="res://Scenes/Items/wires.tscn" id="9_4hhxw"]
+[ext_resource type="PackedScene" uid="uid://crip1son8yd58" path="res://Scenes/Items/Items/item_1.tscn" id="9_kw2w2"]
+[ext_resource type="PackedScene" uid="uid://dd384nsattird" path="res://Scenes/Items/Items/item_2.tscn" id="10_2isji"]
+[ext_resource type="PackedScene" uid="uid://bhpjgqv51vcoe" path="res://Scenes/Items/lights.tscn" id="10_2v1gb"]
+[ext_resource type="PackedScene" uid="uid://cvyj2d6yp8or1" path="res://Scenes/Items/Items/item_3.tscn" id="11_8vt13"]
+[ext_resource type="PackedScene" uid="uid://c84880srptgq0" path="res://Scenes/Items/hazards.tscn" id="11_jpft1"]
+[ext_resource type="PackedScene" uid="uid://c3lpaarm8mna" path="res://Scenes/Items/Items/item_4.tscn" id="12_h46k3"]
+[ext_resource type="PackedScene" uid="uid://cvu2rsjuo5a3n" path="res://Scenes/Items/Windows/window_1.tscn" id="12_m4tp3"]
+[ext_resource type="PackedScene" uid="uid://bx83ph03sn3my" path="res://Scenes/Items/Windows/window_2.tscn" id="13_alpif"]
+[ext_resource type="PackedScene" uid="uid://d1jh6risi0syx" path="res://Scenes/Obstacles/killzone_l.tscn" id="15_0hpjd"]
+[ext_resource type="PackedScene" uid="uid://cvvdm0xhadn1e" path="res://Scenes/Obstacles/killzone_left.tscn" id="16_cbmrb"]
+[ext_resource type="PackedScene" uid="uid://c1xydtoxore60" path="res://Scenes/Obstacles/killzone_right.tscn" id="17_irs85"]
+[ext_resource type="PackedScene" uid="uid://883igr3gnii4" path="res://Scenes/Obstacles/killzone_s.tscn" id="18_h3i7s"]
+[ext_resource type="PackedScene" uid="uid://b1oibt8jhb5qd" path="res://Scenes/checkpoint.tscn" id="19_n16hy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plt4k"]
+atlas = ExtResource("7_6myyr")
+region = Rect2(0, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7u70"]
+atlas = ExtResource("7_6myyr")
+region = Rect2(16, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3bsa"]
+atlas = ExtResource("7_6myyr")
+region = Rect2(32, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72dvh"]
+atlas = ExtResource("7_6myyr")
+region = Rect2(48, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcvtc"]
+atlas = ExtResource("7_6myyr")
+region = Rect2(64, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psb3o"]
+atlas = ExtResource("7_6myyr")
+region = Rect2(80, 112, 16, 16)
+
+[node name="main" type="Node2D"]
+
+[node name="Space" type="Node2D" parent="."]
+
+[node name="Sprite2D5" type="Sprite2D" parent="Space"]
+position = Vector2(-104, -866)
+rotation = 3.14159
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("8_ww88e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Space"]
+position = Vector2(-131, -92)
+rotation = 3.14159
+scale = Vector2(2, 2)
+texture = ExtResource("8_ww88e")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Space"]
+position = Vector2(-761, -411)
+rotation = 4.71238
+scale = Vector2(3, 3)
+texture = ExtResource("8_ww88e")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Space"]
+position = Vector2(500, -416)
+rotation = 7.85397
+scale = Vector2(3, 3)
+texture = ExtResource("8_ww88e")
+
+[node name="TileMap" parent="." instance=ExtResource("1_8m1rt")]
+
+[node name="Escape_Pod" parent="." instance=ExtResource("2_y3ixu")]
+position = Vector2(459, -780)
+
+[node name="Dog" parent="." instance=ExtResource("4_gxa5w")]
+position = Vector2(-735, -771)
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="Ground Floor" type="Node2D" parent="Items"]
+
+[node name="Lights" parent="Items/Ground Floor" instance=ExtResource("10_2v1gb")]
+position = Vector2(-168, -120)
+
+[node name="Lights2" parent="Items/Ground Floor" instance=ExtResource("10_2v1gb")]
+position = Vector2(-40, -40)
+
+[node name="Hazards" parent="Items/Ground Floor" instance=ExtResource("11_jpft1")]
+position = Vector2(-216, -88)
+
+[node name="Hazards2" parent="Items/Ground Floor" instance=ExtResource("11_jpft1")]
+position = Vector2(-103, -152)
+
+[node name="Hazards3" parent="Items/Ground Floor" instance=ExtResource("11_jpft1")]
+position = Vector2(-120, -152)
+
+[node name="Hazards4" parent="Items/Ground Floor" instance=ExtResource("11_jpft1")]
+position = Vector2(-72, -200)
+
+[node name="Hazards5" parent="Items/Ground Floor" instance=ExtResource("11_jpft1")]
+position = Vector2(-216, -200)
+
+[node name="Wires" parent="Items/Ground Floor" instance=ExtResource("9_4hhxw")]
+position = Vector2(-119, -93)
+
+[node name="Wires2" parent="Items/Ground Floor" instance=ExtResource("9_4hhxw")]
+position = Vector2(-21, -77)
+
+[node name="Wires3" parent="Items/Ground Floor" instance=ExtResource("9_4hhxw")]
+position = Vector2(-149, -157)
+
+[node name="Wires4" parent="Items/Ground Floor" instance=ExtResource("9_4hhxw")]
+position = Vector2(-54, -220)
+
+[node name="Window_1" parent="Items/Ground Floor" instance=ExtResource("12_m4tp3")]
+position = Vector2(-72, -120)
+
+[node name="Window_2" parent="Items/Ground Floor" instance=ExtResource("13_alpif")]
+position = Vector2(-136, -264)
+
+[node name="Floor 1" type="Node2D" parent="Items"]
+
+[node name="Floor 2" type="Node2D" parent="Items"]
+
+[node name="Floor 3" type="Node2D" parent="Items"]
+
+[node name="Floor L1" type="Node2D" parent="Items"]
+
+[node name="Floor L2" type="Node2D" parent="Items"]
+
+[node name="Floor L3" type="Node2D" parent="Items"]
+
+[node name="Floor R1" type="Node2D" parent="Items"]
+
+[node name="Floor R2" type="Node2D" parent="Items"]
+
+[node name="Floor R3" type="Node2D" parent="Items"]
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="Floor 1" type="Node2D" parent="Obstacles"]
+
+[node name="Killzone_S" parent="Obstacles/Floor 1" instance=ExtResource("18_h3i7s")]
+position = Vector2(-40, -344)
+
+[node name="Killzone_L" parent="Obstacles/Floor 1" instance=ExtResource("15_0hpjd")]
+position = Vector2(-264, -360)
+
+[node name="Killzone_L2" parent="Obstacles/Floor 1" instance=ExtResource("15_0hpjd")]
+position = Vector2(-136, -312)
+
+[node name="Killzone_L3" parent="Obstacles/Floor 1" instance=ExtResource("15_0hpjd")]
+position = Vector2(-168, -392)
+
+[node name="Killzone_L4" parent="Obstacles/Floor 1" instance=ExtResource("15_0hpjd")]
+position = Vector2(-104, -392)
+
+[node name="Killzone_S2" parent="Obstacles/Floor 1" instance=ExtResource("18_h3i7s")]
+position = Vector2(-136, -488)
+
+[node name="Killzone_S3" parent="Obstacles/Floor 1" instance=ExtResource("18_h3i7s")]
+position = Vector2(-105, -488)
+
+[node name="Killzone_S4" parent="Obstacles/Floor 1" instance=ExtResource("18_h3i7s")]
+position = Vector2(-216, -536)
+
+[node name="Killzone_S5" parent="Obstacles/Floor 1" instance=ExtResource("18_h3i7s")]
+position = Vector2(-40, -536)
+
+[node name="Floor 2" type="Node2D" parent="Obstacles"]
+
+[node name="Killzone_S" parent="Obstacles/Floor 2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-216, -600)
+
+[node name="Killzone_S2" parent="Obstacles/Floor 2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-232, -600)
+
+[node name="Killzone_S3" parent="Obstacles/Floor 2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-248, -600)
+
+[node name="Killzone_S4" parent="Obstacles/Floor 2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-56, -792)
+
+[node name="Killzone_S8" parent="Obstacles/Floor 2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-216, -840)
+
+[node name="Killzone_S10" parent="Obstacles/Floor 2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-89, -872)
+
+[node name="Killzone_S11" parent="Obstacles/Floor 2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-104, -872)
+
+[node name="Killzone_S12" parent="Obstacles/Floor 2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-168, -873)
+
+[node name="Killzone_S13" parent="Obstacles/Floor 2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-184, -873)
+
+[node name="Killzone_S14" parent="Obstacles/Floor 2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-184, -1048)
+
+[node name="Killzone_S15" parent="Obstacles/Floor 2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-88, -1049)
+
+[node name="Killzone_Right" parent="Obstacles/Floor 2" instance=ExtResource("17_irs85")]
+position = Vector2(-152, -680)
+
+[node name="Killzone_Right2" parent="Obstacles/Floor 2" instance=ExtResource("17_irs85")]
+position = Vector2(-152, -696)
+
+[node name="Killzone_Right3" parent="Obstacles/Floor 2" instance=ExtResource("17_irs85")]
+position = Vector2(-248, -696)
+
+[node name="Killzone_Right4" parent="Obstacles/Floor 2" instance=ExtResource("17_irs85")]
+position = Vector2(-248, -712)
+
+[node name="Killzone_Right10" parent="Obstacles/Floor 2" instance=ExtResource("17_irs85")]
+position = Vector2(-240, -792)
+
+[node name="Killzone_Right11" parent="Obstacles/Floor 2" instance=ExtResource("17_irs85")]
+position = Vector2(-56, -824)
+
+[node name="Killzone_Right12" parent="Obstacles/Floor 2" instance=ExtResource("17_irs85")]
+position = Vector2(-55, -808)
+
+[node name="Killzone_Right5" parent="Obstacles/Floor 2" instance=ExtResource("17_irs85")]
+position = Vector2(-40, -728)
+
+[node name="Killzone_Right6" parent="Obstacles/Floor 2" instance=ExtResource("17_irs85")]
+position = Vector2(-40, -712)
+
+[node name="Killzone_Right7" parent="Obstacles/Floor 2" instance=ExtResource("17_irs85")]
+position = Vector2(-40, -696)
+
+[node name="Killzone_Right8" parent="Obstacles/Floor 2" instance=ExtResource("17_irs85")]
+position = Vector2(-144, -760)
+
+[node name="Killzone_Right9" parent="Obstacles/Floor 2" instance=ExtResource("17_irs85")]
+position = Vector2(-144, -776)
+
+[node name="Killzone_L" parent="Obstacles/Floor 2" instance=ExtResource("15_0hpjd")]
+position = Vector2(-200, -952)
+
+[node name="Killzone_L2" parent="Obstacles/Floor 2" instance=ExtResource("15_0hpjd")]
+position = Vector2(-72, -952)
+
+[node name="Floor L1" type="Node2D" parent="Obstacles"]
+
+[node name="Killzone_L" parent="Obstacles/Floor L1" instance=ExtResource("15_0hpjd")]
+position = Vector2(-312, -424)
+
+[node name="Killzone_S" parent="Obstacles/Floor L1" instance=ExtResource("18_h3i7s")]
+position = Vector2(-312, -312)
+
+[node name="Killzone_S2" parent="Obstacles/Floor L1" instance=ExtResource("18_h3i7s")]
+position = Vector2(-376, -312)
+
+[node name="Killzone_S3" parent="Obstacles/Floor L1" instance=ExtResource("18_h3i7s")]
+position = Vector2(-440, -328)
+
+[node name="Killzone_S4" parent="Obstacles/Floor L1" instance=ExtResource("18_h3i7s")]
+position = Vector2(-504, -328)
+
+[node name="Killzone_S5" parent="Obstacles/Floor L1" instance=ExtResource("18_h3i7s")]
+position = Vector2(-488, -376)
+
+[node name="Killzone_S6" parent="Obstacles/Floor L1" instance=ExtResource("18_h3i7s")]
+position = Vector2(-536, -376)
+
+[node name="Killzone_S7" parent="Obstacles/Floor L1" instance=ExtResource("18_h3i7s")]
+position = Vector2(-456, -424)
+
+[node name="Killzone_S8" parent="Obstacles/Floor L1" instance=ExtResource("18_h3i7s")]
+position = Vector2(-440, -424)
+
+[node name="Killzone_S9" parent="Obstacles/Floor L1" instance=ExtResource("18_h3i7s")]
+position = Vector2(-424, -424)
+
+[node name="Killzone_S10" parent="Obstacles/Floor L1" instance=ExtResource("18_h3i7s")]
+position = Vector2(-312, -504)
+
+[node name="Killzone_L2" parent="Obstacles/Floor L1" instance=ExtResource("15_0hpjd")]
+position = Vector2(-488, -504)
+
+[node name="Floor L2" type="Node2D" parent="Obstacles"]
+
+[node name="Killzone_S" parent="Obstacles/Floor L2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-552, -284)
+
+[node name="Killzone_S2" parent="Obstacles/Floor L2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-568, -284)
+
+[node name="Killzone_S3" parent="Obstacles/Floor L2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-584, -284)
+
+[node name="Killzone_S4" parent="Obstacles/Floor L2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-600, -284)
+
+[node name="Killzone_S5" parent="Obstacles/Floor L2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-616, -284)
+
+[node name="Killzone_S6" parent="Obstacles/Floor L2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-632, -284)
+
+[node name="Killzone_S7" parent="Obstacles/Floor L2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-648, -284)
+
+[node name="Killzone_S8" parent="Obstacles/Floor L2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-664, -284)
+
+[node name="Killzone_S9" parent="Obstacles/Floor L2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-680, -284)
+
+[node name="Killzone_S10" parent="Obstacles/Floor L2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-696, -284)
+
+[node name="Killzone_S11" parent="Obstacles/Floor L2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-712, -284)
+
+[node name="Killzone_S12" parent="Obstacles/Floor L2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-728, -284)
+
+[node name="Killzone_S13" parent="Obstacles/Floor L2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-744, -284)
+
+[node name="Killzone_S14" parent="Obstacles/Floor L2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-760, -284)
+
+[node name="Killzone_S15" parent="Obstacles/Floor L2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-776, -284)
+
+[node name="Killzone_S16" parent="Obstacles/Floor L2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-792, -284)
+
+[node name="Killzone_L" parent="Obstacles/Floor L2" instance=ExtResource("15_0hpjd")]
+position = Vector2(-23, -604)
+
+[node name="Killzone_S17" parent="Obstacles/Floor L2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-568, -344)
+
+[node name="Killzone_S18" parent="Obstacles/Floor L2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-616, -312)
+
+[node name="Killzone_S19" parent="Obstacles/Floor L2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-632, -312)
+
+[node name="Killzone_S20" parent="Obstacles/Floor L2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-616, -440)
+
+[node name="Killzone_S21" parent="Obstacles/Floor L2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-600, -440)
+
+[node name="Killzone_S22" parent="Obstacles/Floor L2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-583, -440)
+
+[node name="Killzone_S23" parent="Obstacles/Floor L2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-728, -456)
+
+[node name="Killzone_S24" parent="Obstacles/Floor L2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-760, -552)
+
+[node name="Killzone_S25" parent="Obstacles/Floor L2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-776, -552)
+
+[node name="Killzone_S26" parent="Obstacles/Floor L2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-792, -552)
+
+[node name="Killzone_S27" parent="Obstacles/Floor L2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-552, -552)
+
+[node name="Killzone_S28" parent="Obstacles/Floor L2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-568, -552)
+
+[node name="Killzone_S29" parent="Obstacles/Floor L2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-568, -552)
+
+[node name="Killzone_S30" parent="Obstacles/Floor L2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-584, -344)
+
+[node name="Killzone_S31" parent="Obstacles/Floor L2" instance=ExtResource("18_h3i7s")]
+position = Vector2(-568, -521)
+
+[node name="Killzone_Left" parent="Obstacles/Floor L2" instance=ExtResource("16_cbmrb")]
+position = Vector2(-776, -440)
+
+[node name="Floor L3" type="Node2D" parent="Obstacles"]
+
+[node name="Killzone_L" parent="Obstacles/Floor L3" instance=ExtResource("15_0hpjd")]
+position = Vector2(-696, -664)
+
+[node name="Killzone_L2" parent="Obstacles/Floor L3" instance=ExtResource("15_0hpjd")]
+position = Vector2(-664, -664)
+
+[node name="Killzone_L3" parent="Obstacles/Floor L3" instance=ExtResource("15_0hpjd")]
+position = Vector2(-632, -664)
+
+[node name="Killzone_L4" parent="Obstacles/Floor L3" instance=ExtResource("15_0hpjd")]
+position = Vector2(-760, -760)
+
+[node name="Killzone_S" parent="Obstacles/Floor L3" instance=ExtResource("18_h3i7s")]
+position = Vector2(-664, -712)
+
+[node name="Killzone_Left" parent="Obstacles/Floor L3" instance=ExtResource("16_cbmrb")]
+position = Vector2(-800, -807)
+
+[node name="Killzone_Left2" parent="Obstacles/Floor L3" instance=ExtResource("16_cbmrb")]
+position = Vector2(-800, -791)
+
+[node name="Killzone_Left3" parent="Obstacles/Floor L3" instance=ExtResource("16_cbmrb")]
+position = Vector2(-800, -775)
+
+[node name="Killzone_Left4" parent="Obstacles/Floor L3" instance=ExtResource("16_cbmrb")]
+position = Vector2(-800, -759)
+
+[node name="Killzone_Left5" parent="Obstacles/Floor L3" instance=ExtResource("16_cbmrb")]
+position = Vector2(-800, -743)
+
+[node name="Killzone_Left6" parent="Obstacles/Floor L3" instance=ExtResource("16_cbmrb")]
+position = Vector2(-800, -727)
+
+[node name="Killzone_Left7" parent="Obstacles/Floor L3" instance=ExtResource("16_cbmrb")]
+position = Vector2(-800, -711)
+
+[node name="Killzone_Left8" parent="Obstacles/Floor L3" instance=ExtResource("16_cbmrb")]
+position = Vector2(-800, -695)
+
+[node name="Killzone_Left9" parent="Obstacles/Floor L3" instance=ExtResource("16_cbmrb")]
+position = Vector2(-800, -679)
+
+[node name="Killzone_Left10" parent="Obstacles/Floor L3" instance=ExtResource("16_cbmrb")]
+position = Vector2(-800, -663)
+
+[node name="Killzone_Left11" parent="Obstacles/Floor L3" instance=ExtResource("16_cbmrb")]
+position = Vector2(-535, -807)
+
+[node name="Killzone_Left12" parent="Obstacles/Floor L3" instance=ExtResource("16_cbmrb")]
+position = Vector2(-535, -791)
+
+[node name="Killzone_Left13" parent="Obstacles/Floor L3" instance=ExtResource("16_cbmrb")]
+position = Vector2(-535, -775)
+
+[node name="Killzone_Left14" parent="Obstacles/Floor L3" instance=ExtResource("16_cbmrb")]
+position = Vector2(-535, -759)
+
+[node name="Killzone_Left15" parent="Obstacles/Floor L3" instance=ExtResource("16_cbmrb")]
+position = Vector2(-535, -743)
+
+[node name="Killzone_Left16" parent="Obstacles/Floor L3" instance=ExtResource("16_cbmrb")]
+position = Vector2(-535, -727)
+
+[node name="Killzone_Left17" parent="Obstacles/Floor L3" instance=ExtResource("16_cbmrb")]
+position = Vector2(-535, -711)
+
+[node name="Killzone_Left18" parent="Obstacles/Floor L3" instance=ExtResource("16_cbmrb")]
+position = Vector2(-535, -695)
+
+[node name="Killzone_Left19" parent="Obstacles/Floor L3" instance=ExtResource("16_cbmrb")]
+position = Vector2(-535, -679)
+
+[node name="Killzone_Left20" parent="Obstacles/Floor L3" instance=ExtResource("16_cbmrb")]
+position = Vector2(-535, -663)
+
+[node name="Floor R1" type="Node2D" parent="Obstacles"]
+
+[node name="Killzone_S" parent="Obstacles/Floor R1" instance=ExtResource("18_h3i7s")]
+position = Vector2(-8, -488)
+
+[node name="Killzone_S2" parent="Obstacles/Floor R1" instance=ExtResource("18_h3i7s")]
+position = Vector2(8, -376)
+
+[node name="Killzone_S3" parent="Obstacles/Floor R1" instance=ExtResource("18_h3i7s")]
+position = Vector2(104, -344)
+
+[node name="Killzone_S4" parent="Obstacles/Floor R1" instance=ExtResource("18_h3i7s")]
+position = Vector2(120, -344)
+
+[node name="Killzone_L" parent="Obstacles/Floor R1" instance=ExtResource("15_0hpjd")]
+position = Vector2(184, -376)
+
+[node name="Killzone_Left" parent="Obstacles/Floor R1" instance=ExtResource("16_cbmrb")]
+position = Vector2(112, -472)
+
+[node name="Killzone_Left2" parent="Obstacles/Floor R1" instance=ExtResource("16_cbmrb")]
+position = Vector2(112, -456)
+
+[node name="Floor R2" type="Node2D" parent="Obstacles"]
+
+[node name="Killzone_S" parent="Obstacles/Floor R2" instance=ExtResource("18_h3i7s")]
+position = Vector2(521, -283)
+
+[node name="Killzone_S2" parent="Obstacles/Floor R2" instance=ExtResource("18_h3i7s")]
+position = Vector2(505, -283)
+
+[node name="Killzone_S3" parent="Obstacles/Floor R2" instance=ExtResource("18_h3i7s")]
+position = Vector2(489, -283)
+
+[node name="Killzone_S4" parent="Obstacles/Floor R2" instance=ExtResource("18_h3i7s")]
+position = Vector2(473, -283)
+
+[node name="Killzone_S5" parent="Obstacles/Floor R2" instance=ExtResource("18_h3i7s")]
+position = Vector2(457, -283)
+
+[node name="Killzone_S6" parent="Obstacles/Floor R2" instance=ExtResource("18_h3i7s")]
+position = Vector2(441, -283)
+
+[node name="Killzone_S7" parent="Obstacles/Floor R2" instance=ExtResource("18_h3i7s")]
+position = Vector2(425, -283)
+
+[node name="Killzone_S8" parent="Obstacles/Floor R2" instance=ExtResource("18_h3i7s")]
+position = Vector2(409, -283)
+
+[node name="Killzone_S9" parent="Obstacles/Floor R2" instance=ExtResource("18_h3i7s")]
+position = Vector2(393, -283)
+
+[node name="Killzone_S10" parent="Obstacles/Floor R2" instance=ExtResource("18_h3i7s")]
+position = Vector2(377, -283)
+
+[node name="Killzone_S11" parent="Obstacles/Floor R2" instance=ExtResource("18_h3i7s")]
+position = Vector2(361, -283)
+
+[node name="Killzone_S12" parent="Obstacles/Floor R2" instance=ExtResource("18_h3i7s")]
+position = Vector2(345, -283)
+
+[node name="Killzone_S13" parent="Obstacles/Floor R2" instance=ExtResource("18_h3i7s")]
+position = Vector2(329, -283)
+
+[node name="Killzone_S14" parent="Obstacles/Floor R2" instance=ExtResource("18_h3i7s")]
+position = Vector2(313, -283)
+
+[node name="Killzone_S15" parent="Obstacles/Floor R2" instance=ExtResource("18_h3i7s")]
+position = Vector2(297, -283)
+
+[node name="Killzone_S16" parent="Obstacles/Floor R2" instance=ExtResource("18_h3i7s")]
+position = Vector2(281, -283)
+
+[node name="Killzone_Left" parent="Obstacles/Floor R2" instance=ExtResource("16_cbmrb")]
+position = Vector2(448, -328)
+
+[node name="Killzone_Left2" parent="Obstacles/Floor R2" instance=ExtResource("16_cbmrb")]
+position = Vector2(504, -328)
+
+[node name="Killzone_Left3" parent="Obstacles/Floor R2" instance=ExtResource("16_cbmrb")]
+position = Vector2(522, -536)
+
+[node name="Killzone_Left4" parent="Obstacles/Floor R2" instance=ExtResource("16_cbmrb")]
+position = Vector2(522, -520)
+
+[node name="Killzone_L" parent="Obstacles/Floor R2" instance=ExtResource("15_0hpjd")]
+position = Vector2(376, -536)
+
+[node name="Killzone_L2" parent="Obstacles/Floor R2" instance=ExtResource("15_0hpjd")]
+position = Vector2(296, -456)
+
+[node name="Killzone_L3" parent="Obstacles/Floor R2" instance=ExtResource("15_0hpjd")]
+position = Vector2(392, -456)
+
+[node name="Killzone_S17" parent="Obstacles/Floor R2" instance=ExtResource("18_h3i7s")]
+position = Vector2(264, -360)
+
+[node name="Killzone_S18" parent="Obstacles/Floor R2" instance=ExtResource("18_h3i7s")]
+position = Vector2(280, -360)
+
+[node name="Killzone_S19" parent="Obstacles/Floor R2" instance=ExtResource("18_h3i7s")]
+position = Vector2(440, -312)
+
+[node name="Killzone_S20" parent="Obstacles/Floor R2" instance=ExtResource("18_h3i7s")]
+position = Vector2(504, -312)
+
+[node name="Floor R3" type="Node2D" parent="Obstacles"]
+
+[node name="Killzone_Left21" parent="Obstacles/Floor R3" instance=ExtResource("16_cbmrb")]
+position = Vector2(271, -807)
+
+[node name="Killzone_Left22" parent="Obstacles/Floor R3" instance=ExtResource("16_cbmrb")]
+position = Vector2(271, -791)
+
+[node name="Killzone_Left23" parent="Obstacles/Floor R3" instance=ExtResource("16_cbmrb")]
+position = Vector2(271, -775)
+
+[node name="Killzone_Left24" parent="Obstacles/Floor R3" instance=ExtResource("16_cbmrb")]
+position = Vector2(271, -759)
+
+[node name="Killzone_Left25" parent="Obstacles/Floor R3" instance=ExtResource("16_cbmrb")]
+position = Vector2(271, -743)
+
+[node name="Killzone_Left26" parent="Obstacles/Floor R3" instance=ExtResource("16_cbmrb")]
+position = Vector2(271, -727)
+
+[node name="Killzone_Left27" parent="Obstacles/Floor R3" instance=ExtResource("16_cbmrb")]
+position = Vector2(271, -711)
+
+[node name="Killzone_Left28" parent="Obstacles/Floor R3" instance=ExtResource("16_cbmrb")]
+position = Vector2(271, -695)
+
+[node name="Killzone_Left29" parent="Obstacles/Floor R3" instance=ExtResource("16_cbmrb")]
+position = Vector2(271, -679)
+
+[node name="Killzone_Left30" parent="Obstacles/Floor R3" instance=ExtResource("16_cbmrb")]
+position = Vector2(271, -663)
+
+[node name="Killzone_Left31" parent="Obstacles/Floor R3" instance=ExtResource("16_cbmrb")]
+position = Vector2(536, -807)
+
+[node name="Killzone_Left32" parent="Obstacles/Floor R3" instance=ExtResource("16_cbmrb")]
+position = Vector2(536, -791)
+
+[node name="Killzone_Left33" parent="Obstacles/Floor R3" instance=ExtResource("16_cbmrb")]
+position = Vector2(536, -775)
+
+[node name="Killzone_Left34" parent="Obstacles/Floor R3" instance=ExtResource("16_cbmrb")]
+position = Vector2(536, -759)
+
+[node name="Killzone_Left35" parent="Obstacles/Floor R3" instance=ExtResource("16_cbmrb")]
+position = Vector2(536, -743)
+
+[node name="Killzone_Left36" parent="Obstacles/Floor R3" instance=ExtResource("16_cbmrb")]
+position = Vector2(536, -727)
+
+[node name="Killzone_Left37" parent="Obstacles/Floor R3" instance=ExtResource("16_cbmrb")]
+position = Vector2(536, -711)
+
+[node name="Killzone_Left38" parent="Obstacles/Floor R3" instance=ExtResource("16_cbmrb")]
+position = Vector2(536, -695)
+
+[node name="Killzone_Left39" parent="Obstacles/Floor R3" instance=ExtResource("16_cbmrb")]
+position = Vector2(536, -679)
+
+[node name="Killzone_Left40" parent="Obstacles/Floor R3" instance=ExtResource("16_cbmrb")]
+position = Vector2(536, -663)
+
+[node name="Killzone_S" parent="Obstacles/Floor R3" instance=ExtResource("18_h3i7s")]
+position = Vector2(392, -616)
+
+[node name="Killzone_S2" parent="Obstacles/Floor R3" instance=ExtResource("18_h3i7s")]
+position = Vector2(440, -616)
+
+[node name="Killzone_S3" parent="Obstacles/Floor R3" instance=ExtResource("18_h3i7s")]
+position = Vector2(360, -632)
+
+[node name="Killzone_S4" parent="Obstacles/Floor R3" instance=ExtResource("18_h3i7s")]
+position = Vector2(376, -728)
+
+[node name="Killzone_S5" parent="Obstacles/Floor R3" instance=ExtResource("18_h3i7s")]
+position = Vector2(328, -728)
+
+[node name="Killzone_S6" parent="Obstacles/Floor R3" instance=ExtResource("18_h3i7s")]
+position = Vector2(416, -760)
+
+[node name="Killzone_S7" parent="Obstacles/Floor R3" instance=ExtResource("18_h3i7s")]
+position = Vector2(408, -681)
+
+[node name="Killzone_L" parent="Obstacles/Floor R3" instance=ExtResource("15_0hpjd")]
+position = Vector2(344, -584)
+
+[node name="Killzone_S8" parent="Obstacles/Floor R3" instance=ExtResource("18_h3i7s")]
+position = Vector2(504, -660)
+
+[node name="Collect" type="Node2D" parent="."]
+
+[node name="Item_1" parent="Collect" instance=ExtResource("9_kw2w2")]
+position = Vector2(-135, -583)
+
+[node name="Item_2" parent="Collect" instance=ExtResource("10_2isji")]
+position = Vector2(-776, -312)
+
+[node name="Item_3" parent="Collect" instance=ExtResource("11_8vt13")]
+position = Vector2(476, -328)
+
+[node name="Item_4" parent="Collect" instance=ExtResource("12_h46k3")]
+position = Vector2(-56, -1064)
+
+[node name="Checkpoints" type="Node2D" parent="."]
+
+[node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("19_n16hy")]
+position = Vector2(-120, -521)
+
+[node name="Checkpoint3" parent="Checkpoints" instance=ExtResource("19_n16hy")]
+position = Vector2(168, -536)
+
+[node name="Checkpoint4" parent="Checkpoints" instance=ExtResource("19_n16hy")]
+position = Vector2(440, -504)
+
+[node name="Checkpoint5" parent="Checkpoints" instance=ExtResource("19_n16hy")]
+position = Vector2(280, -792)
+
+[node name="Checkpoint6" parent="Checkpoints" instance=ExtResource("19_n16hy")]
+position = Vector2(-24, -856)
+
+[node name="Checkpoint7" parent="Checkpoints" instance=ExtResource("19_n16hy")]
+position = Vector2(-216, -1064)
+
+[node name="Checkpoint8" parent="Checkpoints" instance=ExtResource("19_n16hy")]
+position = Vector2(-456, -536)
+
+[node name="Checkpoint9" parent="Checkpoints" instance=ExtResource("19_n16hy")]
+position = Vector2(-584, -536)
+
+[node name="Checkpoint10" parent="Checkpoints" instance=ExtResource("19_n16hy")]
+position = Vector2(-568, -792)
+
+[node name="Checkpoint" parent="Checkpoints" instance=ExtResource("19_n16hy")]
+position = Vector2(-216, -230)
+
+[node name="Astro" parent="." instance=ExtResource("1_f2mj2")]
+position = Vector2(-218, -16)
+
+[node name="jump" type="AudioStreamPlayer2D" parent="Astro"]
+stream = ExtResource("2_1hd8m")
+
+[node name="UI" type="CanvasLayer" parent="Astro"]
+scale = Vector2(4, 4)
+transform = Transform2D(4, 0, 0, 4, 0, 0)
+script = ExtResource("6_aef0q")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Astro/UI"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Pause" type="TextureButton" parent="Astro/UI/HBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_plt4k")
+texture_pressed = SubResource("AtlasTexture_w7u70")
+
+[node name="Music" type="TextureButton" parent="Astro/UI/HBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_c3bsa")
+texture_pressed = SubResource("AtlasTexture_72dvh")
+
+[node name="Menu" type="TextureButton" parent="Astro/UI/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_gcvtc")
+texture_pressed = SubResource("AtlasTexture_psb3o")

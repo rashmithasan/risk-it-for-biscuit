@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://c84880srptgq0"]
+
+[ext_resource type="Texture2D" uid="uid://cbtrtsf5b3kk3" path="res://Assets/Sprites/BG_Spritesheet.png" id="1_1foob"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvtqa"]
+atlas = ExtResource("1_1foob")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h30db"]
+atlas = ExtResource("1_1foob")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnmdr"]
+atlas = ExtResource("1_1foob")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdgcs"]
+atlas = ExtResource("1_1foob")
+region = Rect2(96, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qnx3f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvtqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h30db")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnmdr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdgcs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Hazards" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_qnx3f")
+autoplay = "default"
+frame_progress = 0.490255
