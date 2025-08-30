@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://bu3daodo34uyy"]
+
+[ext_resource type="Texture2D" uid="uid://d31knvqurhpjo" path="res://Assets/Sprites/Spritesheet_elements.png" id="1_mapj7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwen7"]
+atlas = ExtResource("1_mapj7")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1scy"]
+atlas = ExtResource("1_mapj7")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3oapw"]
+atlas = ExtResource("1_mapj7")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cu11u"]
+atlas = ExtResource("1_mapj7")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m4m04"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwen7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1scy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3oapw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cu11u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Dog" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_m4m04")
+frame_progress = 0.343101

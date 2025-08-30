@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dp201dh5p2kvh"]
+
+[ext_resource type="Texture2D" uid="uid://d31knvqurhpjo" path="res://Assets/Sprites/Spritesheet_elements.png" id="1_tt55i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jn3r4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cixm2"]
+atlas = ExtResource("1_tt55i")
+region = Rect2(97, 47, 31, 33)
+
+[node name="Escape_Pod" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jn3r4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_cixm2")

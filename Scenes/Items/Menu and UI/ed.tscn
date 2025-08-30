@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://bjdol5fidbdhj"]
+
+[ext_resource type="Texture2D" uid="uid://bnsudrlhqo2fv" path="res://Assets/Sprites/ED.png" id="1_1t45f"]
+[ext_resource type="Script" path="res://Scripts/ed_credits.gd" id="1_bsdf1"]
+[ext_resource type="FontFile" uid="uid://3h073fjh4f3g" path="res://Assets/Fonts/Hardpixel.OTF" id="2_ik3dx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5t1sl"]
+texture = ExtResource("1_1t45f")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nllr5"]
+bg_color = Color(0.133333, 0.12549, 0.203922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ojtxj"]
+bg_color = Color(0.6, 0.898039, 0.313726, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_psdgr"]
+bg_color = Color(0.6, 0.898039, 0.313726, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.133333, 0.12549, 0.203922, 1)
+
+[node name="ED" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_bsdf1")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+scale = Vector2(4, 4)
+theme_override_styles/panel = SubResource("StyleBoxTexture_5t1sl")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 911.0
+offset_top = 558.0
+offset_right = 1048.0
+offset_bottom = 590.0
+scale = Vector2(2, 2)
+focus_mode = 0
+theme_override_colors/font_color = Color(0.6, 0.898039, 0.313726, 1)
+theme_override_colors/font_pressed_color = Color(0.133333, 0.12549, 0.203922, 1)
+theme_override_colors/font_hover_color = Color(0.133333, 0.12549, 0.203922, 1)
+theme_override_fonts/font = ExtResource("2_ik3dx")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_nllr5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ojtxj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_psdgr")
+text = "Go to Menu"
