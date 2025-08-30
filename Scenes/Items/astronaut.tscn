@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://bbsesg6qq584n"]
+
+[ext_resource type="Texture2D" uid="uid://d31knvqurhpjo" path="res://Assets/Sprites/Spritesheet_elements.png" id="1_jw8ye"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0qd3"]
+atlas = ExtResource("1_jw8ye")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dv5ea"]
+atlas = ExtResource("1_jw8ye")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46hso"]
+atlas = ExtResource("1_jw8ye")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_je2y0"]
+atlas = ExtResource("1_jw8ye")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4uro"]
+atlas = ExtResource("1_jw8ye")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ikxjs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0qd3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dv5ea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46hso")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_je2y0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4uro")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Astronaut" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_ikxjs")
+frame_progress = 0.923549

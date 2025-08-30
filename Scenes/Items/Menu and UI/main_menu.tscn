@@ -1,0 +1,190 @@
+[gd_scene load_steps=25 format=3 uid="uid://blrnb7qfbukyq"]
+
+[ext_resource type="Texture2D" uid="uid://bdswkkia6q3wb" path="res://Assets/Sprites/Screen.png" id="1_im5fb"]
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_javxu"]
+[ext_resource type="FontFile" uid="uid://3h073fjh4f3g" path="res://Assets/Fonts/Hardpixel.OTF" id="2_jevax"]
+[ext_resource type="PackedScene" uid="uid://bu3daodo34uyy" path="res://Scenes/Items/doggy.tscn" id="3_0jk0l"]
+[ext_resource type="PackedScene" uid="uid://bbsesg6qq584n" path="res://Scenes/Items/astronaut.tscn" id="4_y747i"]
+[ext_resource type="PackedScene" uid="uid://bv7dncppuo5l5" path="res://Scenes/Items/wires.tscn" id="5_d0g2e"]
+[ext_resource type="PackedScene" uid="uid://bhpjgqv51vcoe" path="res://Scenes/Items/lights.tscn" id="6_kji1f"]
+[ext_resource type="PackedScene" uid="uid://cvu2rsjuo5a3n" path="res://Scenes/Items/Windows/window_1.tscn" id="7_rn1xs"]
+[ext_resource type="PackedScene" uid="uid://bx83ph03sn3my" path="res://Scenes/Items/Windows/window_2.tscn" id="8_pmgqh"]
+[ext_resource type="PackedScene" uid="uid://c7geibfl0yv8a" path="res://Scenes/Items/Windows/window_3.tscn" id="9_tifl7"]
+[ext_resource type="PackedScene" uid="uid://dbekkqsdsmawq" path="res://Scenes/Items/cookie.tscn" id="10_7uq53"]
+[ext_resource type="AudioStream" uid="uid://c64slmu34evyt" path="res://Assets/Sounds/button_click.ogg" id="12_ab5me"]
+[ext_resource type="AudioStream" uid="uid://x0n8e0p8jdex" path="res://Assets/Sounds/ui_interact.ogg" id="13_t7jrq"]
+
+[sub_resource type="Theme" id="Theme_j80x3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rb6h5"]
+texture = ExtResource("1_im5fb")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dpdhf"]
+bg_color = Color(0.113725, 0.109804, 0.141176, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6bw6"]
+bg_color = Color(0.113725, 0.109804, 0.141176, 1)
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cgykp"]
+bg_color = Color(0.113725, 0.109804, 0.141176, 1)
+border_width_bottom = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61axg"]
+bg_color = Color(0.113725, 0.109804, 0.141176, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yta85"]
+bg_color = Color(0.113725, 0.109804, 0.141176, 1)
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q6y7i"]
+bg_color = Color(0.113725, 0.109804, 0.141176, 1)
+border_width_bottom = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m3ir2"]
+bg_color = Color(0.113725, 0.109804, 0.141176, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gsej6"]
+bg_color = Color(0.113725, 0.109804, 0.141176, 1)
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_euq5c"]
+bg_color = Color(0.113725, 0.109804, 0.141176, 1)
+border_width_bottom = 4
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_javxu")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+scale = Vector2(4, 4)
+theme = SubResource("Theme_j80x3")
+theme_override_styles/panel = SubResource("StyleBoxTexture_rb6h5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 400.0
+offset_top = 413.0
+offset_right = 615.0
+offset_bottom = 501.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+theme_override_constants/separation = 8
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 0
+theme_override_fonts/font = ExtResource("2_jevax")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_dpdhf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_r6bw6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cgykp")
+text = "START"
+
+[node name="Credits" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_jevax")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_61axg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yta85")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_q6y7i")
+text = "CREDITS"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_jevax")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_m3ir2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gsej6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_euq5c")
+text = "EXIT"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 319.0
+offset_top = 43.0
+offset_right = 487.0
+offset_bottom = 124.0
+scale = Vector2(4, 4)
+theme_override_fonts/font = ExtResource("2_jevax")
+theme_override_font_sizes/font_size = 20
+text = "Risk it
+for Biscuit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Animations" type="Node2D" parent="."]
+position = Vector2(29, 5)
+
+[node name="Doggy" parent="Animations" instance=ExtResource("3_0jk0l")]
+position = Vector2(999, 523)
+scale = Vector2(12.88, 12.88)
+autoplay = "default"
+
+[node name="Astronaut" parent="Animations" instance=ExtResource("4_y747i")]
+position = Vector2(205, 522)
+scale = Vector2(11.32, 11.32)
+autoplay = "default"
+
+[node name="Wires" parent="Animations" instance=ExtResource("5_d0g2e")]
+position = Vector2(99, 123)
+scale = Vector2(12, 12)
+autoplay = "default"
+
+[node name="Lights" parent="Animations" instance=ExtResource("6_kji1f")]
+position = Vector2(1155, 91)
+scale = Vector2(3.3173, 3.3173)
+autoplay = "default"
+
+[node name="Window_1" parent="Animations" instance=ExtResource("7_rn1xs")]
+position = Vector2(1003, 323)
+rotation = 3.14159
+scale = Vector2(4.42584, 4.42584)
+autoplay = "default"
+
+[node name="Window_2" parent="Animations" instance=ExtResource("8_pmgqh")]
+position = Vector2(243, 139)
+scale = Vector2(4.6, 4.6)
+autoplay = "default"
+
+[node name="Window_3" parent="Animations" instance=ExtResource("9_tifl7")]
+position = Vector2(123, 331)
+scale = Vector2(4.6, 4.6)
+autoplay = "default"
+
+[node name="Cookie" parent="Animations" instance=ExtResource("10_7uq53")]
+position = Vector2(923, 171)
+scale = Vector2(6.04, 6.04)
+autoplay = "default"
+
+[node name="Cookie2" parent="Animations" instance=ExtResource("10_7uq53")]
+position = Vector2(347, 355)
+scale = Vector2(6.04, 6.04)
+autoplay = "default"
+
+[node name="ui_click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_ab5me")
+
+[node name="ui_interact" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_t7jrq")
+
+[connection signal="mouse_entered" from="VBoxContainer/Start" to="." method="_on_start_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Credits" to="." method="_on_credits_mouse_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/Exit" to="." method="_on_exit_mouse_entered"]
